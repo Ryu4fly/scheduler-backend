@@ -10,11 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+# Local lib imports
+import os
+
+# Django Core imports
 from pathlib import Path
 
-# 3rd Party Imports
+# 3rd Party imports
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 3rd Party App
+    # 3rd-party App
     'rest_framework'
 ]
 
