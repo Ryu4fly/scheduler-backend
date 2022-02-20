@@ -18,8 +18,8 @@ class friend_status(models.Model):
     'pending': 0,
     'accepted': 1
   }
-  inviting_user = models.ForeignKey(Profile, related_name="inviting_user")
-  accepting_user = models.ForeignKey(Profile, related_name="accepting_user")
+  inviting_user = models.ForeignKey(Profile, related_name="inviting_user", on_delete=models.CASCADE)
+  accepting_user = models.ForeignKey(Profile, related_name="accepting_user", on_delete=models.CASCADE)
 
 class Group(models.Model):
   name = models.CharField(max_length=250)

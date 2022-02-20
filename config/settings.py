@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'scheduler.apps.SchedulerConfig',
     # 3rd-party App
     'rest_framework'
 ]
