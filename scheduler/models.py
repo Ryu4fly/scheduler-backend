@@ -33,7 +33,6 @@ class TimeSlot(models.Model):
   start_date = models.DateTimeField()
   end_date = models.DateField()
 
-
 class Schedule(models.Model):
   user = models.ForeignKey(Profile, on_delete=models.CASCADE)
   timezones = models.ManyToManyField(Timezone)
