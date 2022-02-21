@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
+  username = models.CharField(max_length=100)
+  email = models.CharField(max_length=100)
+  first_name = models.CharField(max_length=100)
+  last_name = models.CharField(max_length=100)
   created = models.DateTimeField(auto_now_add=True)
   location = models.CharField(max_length=250)
   gamer_profiles = {
@@ -13,6 +17,8 @@ class Profile(models.Model):
   }
   friends = models.ManyToManyField('Profile')
 
+  def __str__(self):
+    return self.username
 class friend_status(models.Model):
   status = {
     'pending': 0,
@@ -27,6 +33,9 @@ class Group(models.Model):
 
 class Timezone(models.Model):
   name = models.CharField(max_length=50)
+
+  def __str__(self):
+    return self.name
 
 class TimeSlot(models.Model):
   schedule = models.ForeignKey('Schedule', on_delete=models.CASCADE)
