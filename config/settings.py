@@ -93,6 +93,9 @@ DATABASES = {
         'PASSWORD': os.getenv('RDS_PASSWORD'),
         'HOST': os.getenv('RDS_HOSTNAME'),
         'PORT': os.getenv('RDS_DB_NAME'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
