@@ -9,6 +9,7 @@ class Profile(models.Model):
   first_name = models.CharField(max_length=100)
   last_name = models.CharField(max_length=100)
   created = models.DateTimeField(auto_now_add=True)
+  updated = models.DateTimeField(auto_now=True)
   location = models.CharField(max_length=250)
   gamer_profiles = models.JSONField(default=dict)
   friends = models.ManyToManyField('Profile')
@@ -17,12 +18,14 @@ class Profile(models.Model):
     return self.username
 
 class friend_status(models.Model):
-  status = {
-    'pending': 0,
-    'accepted': 1
+  STATUS_TYPE = {
+    ('PENDING', 'Pending'),
+    ('ACCEPTED', 'Accept'),
+    ('IGNORED', 'Ignore')
   }
   inviting_user = models.ForeignKey(Profile, related_name="inviting_user", on_delete=models.CASCADE)
   accepting_user = models.ForeignKey(Profile, related_name="accepting_user", on_delete=models.CASCADE)
+  status = models.CharField(max_length=20, default='PENDING', editable=False)
 
 
 class Group(models.Model):
