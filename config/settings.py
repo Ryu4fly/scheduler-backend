@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'scheduler.apps.SchedulerConfig',
     # 3rd-party App
     'rest_framework'
 ]
@@ -92,6 +93,9 @@ DATABASES = {
         'PASSWORD': os.getenv('RDS_PASSWORD'),
         'HOST': os.getenv('RDS_HOSTNAME'),
         'PORT': os.getenv('RDS_DB_NAME'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
