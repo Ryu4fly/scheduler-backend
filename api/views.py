@@ -8,8 +8,6 @@ from .serializers import ProfileSerializer
 from scheduler.models import Profile
 from scheduler.utils import search_profiles
 
-from api import serializers
-
 
 @api_view(['GET'])
 def getRoutes(request):
