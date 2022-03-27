@@ -14,7 +14,7 @@ class Profile(models.Model):
   updated = models.DateTimeField(auto_now=True)
   location = models.CharField(max_length=250)
   gamer_profiles = models.JSONField(default=dict)
-  friends = models.ManyToManyField('Profile')
+  friends = models.ManyToManyField('Profile', blank=True)
 
   def __str__(self):
     return self.username

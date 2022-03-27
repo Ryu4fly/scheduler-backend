@@ -12,6 +12,8 @@ urlpatterns = [
   path('token-refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
   path('', views.getRoutes),
-  path('profiles/', views.getProfiles),
-  path('profile/<str:pk>/', views.getProfile)
+  path('profiles/', views.get_profiles),
+  path('profile/<str:pk>/', views.get_profile),
+  path('profile/<str:pk>/update/', views.update_profile),
+  path('profile/<str:pk>/delete/', views.delete_profile)
 ]
